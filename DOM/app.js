@@ -1,18 +1,20 @@
-const result = document.querySelector('.result');
-const h2 = document.querySelector('.red');
-const bodyDiv = document.createElement('div');
-const bodyText = document.createTextNode('hello body');
-bodyDiv.appendChild(bodyText);
-document.body.insertBefore(bodyDiv, result);
+const btn = document.querySelector('.btn');
+const container = document.querySelector('.container');
+// const heading = document.querySelector('.heading');
 
-const heading = document.createElement('h2');
-const text = document.createTextNode('je suis un h2');
-heading.appendChild(text);
-heading.classList.add('blue');
-result.insertBefore(heading, h2);
+function sayHello() {
+  console.log('hello');
+}
 
-const smallHeading = document.createElement('h6');
-const smallText = document.createTextNode('je suis tout petit');
-smallHeading.classList.add('red');
-smallHeading.appendChild(smallText);
-document.body.replaceChild(smallHeading, bodyDiv);
+btn.addEventListener('click', function () {
+  const element = document.createElement('h1');
+  element.classList.add('heading');
+  element.textContent = `i'm inside a container`;
+  container.appendChild(element);
+});
+
+container.addEventListener('click', function (e) {
+  if (e.target.classList.contains('heading')) {
+    console.log('hello there');
+  }
+});
