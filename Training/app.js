@@ -1,25 +1,15 @@
-let stringTest = 'alors comment bebe';
+let arr = ['apple', 'pear', 'grapes'];
 
-const removeABC = (str) => {
-  let no = 0;
-  for (let i = 0; i < str.length; i++) {
-    if (str[i] === 'a') {
-      str = str.replace('a', '');
-      no++;
-    }
-    if (str[i] === 'b') {
-      str = str.replace('b', '');
-      no++;
-    }
-    if (str[i] === 'c') {
-      str = str.replace('b', '');
-      no++;
-    }
+const fruitSalad = (arr) => {
+  let finalArr = [];
+  for (let i = 0; i < arr.length; i++) {
+    let wordLenght = arr[i].length / 2;
+    let partOne = arr[i].substr(0, wordLenght);
+    let partTwo = arr[i].substr(wordLenght, wordLenght * 2);
+    finalArr.push(partOne);
+    finalArr.push(partTwo);
   }
-  if (no === 0) {
-    return console.log(null);
-  }
-  return console.log(str);
+  return console.log(finalArr.sort().join(''));
 };
 
-removeABC('this might be a bit hard');
+fruitSalad(['banana']);
