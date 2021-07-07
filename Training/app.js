@@ -1,18 +1,29 @@
-const counter = {
-  count: 0,
-  increment() {
-    console.log(this);
-    this.count++;
-    console.log(this.count);
-  },
-};
-const btn = document.querySelector('.increment');
+// Closure
+function newAccount(name, initalBalance) {
+  let balance = initalBalance;
+  function showBalance() {
+    console.log(`Hey ${name} yout balance is ${balance}`);
+  }
+  function deposit(amount) {
+    balance += amount;
+    showBalance();
+  }
+  function withdraw(amount) {
+    if (amount > balance) {
+      console.log(`Hey, ${name}, sorry not enough funds`);
+      return;
+    }
+    balance -= amount;
+    showBalance();
+  }
+  return { showBalance: showBalance, deposit: deposit, withdraw: withdraw };
+}
 
-// btn.addEventListener('click', counter.increment);
+const john = newAccount('john', 400);
+const bob = newAccount('bob', 200);
+john.deposit(400);
 
-// some edge cases
-// btn.addEventListener('click', counter.increment.bind(counter));
+john.withdraw(1000);
 
-const increment = counter.increment.bind(counter);
-btn.addEventListener('click', increment);
-btn.removeEventListener('click', increment);
+bob.deposit(2000);
+bob.withdraw(1000);
