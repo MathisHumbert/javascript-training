@@ -1,29 +1,16 @@
-// Closure
-function newAccount(name, initalBalance) {
-  let balance = initalBalance;
-  function showBalance() {
-    console.log(`Hey ${name} yout balance is ${balance}`);
-  }
-  function deposit(amount) {
-    balance += amount;
-    showBalance();
-  }
-  function withdraw(amount) {
-    if (amount > balance) {
-      console.log(`Hey, ${name}, sorry not enough funds`);
-      return;
-    }
-    balance -= amount;
-    showBalance();
-  }
-  return { showBalance: showBalance, deposit: deposit, withdraw: withdraw };
+const author = 'Some Author';
+const statement = 'Some Statement';
+
+const quote = hightLight`Here is the ${statement} by ${author} and it could not be more true`;
+console.log(quote);
+
+const result = document.getElementById('result');
+result.innerHTML = quote;
+
+function hightLight(text, ...vars) {
+  console.log(text, vars);
+  const awesome = text.map((item, index) => {
+    return `${item}<strong class="blue">${vars[index] || ''}</strong>`;
+  });
+  return awesome.join('');
 }
-
-const john = newAccount('john', 400);
-const bob = newAccount('bob', 200);
-john.deposit(400);
-
-john.withdraw(1000);
-
-bob.deposit(2000);
-bob.withdraw(1000);
