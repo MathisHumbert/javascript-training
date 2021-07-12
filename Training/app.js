@@ -1,19 +1,10 @@
-const fruits = ['apple', 'orange', 'banana', 'peach'];
-const longName = 'John Smith Pepper III';
-let shortName = '';
+const headings = document.querySelectorAll('h1');
+const result = document.getElementById('result');
 
-for (let letter of longName) {
-  if (letter === ' ') {
-    continue;
-  } else {
-    shortName += letter;
-  }
-}
-console.log(shortName);
+const text = [...headings]
+  .map((item) => {
+    return `<span>${item.textContent}</span>`;
+  })
+  .join(' ');
 
-for (fruit of fruits) {
-  if (fruit === 'orange') {
-    continue;
-  }
-  console.log(fruit);
-}
+result.innerHTML = text;
