@@ -1,25 +1,14 @@
-const fruits = ['apple', 'orange', 'lemon', 'banana', 'pear'];
-const [first, secon, ...fruit] = fruits;
-console.log(fruit);
+const p = document.querySelectorAll('p');
+const result = document.getElementById('result');
+const second = document.getElementById('second');
 
-const person = {
-  name: 'Mathis',
-  lastName: 'Humbert',
-  job: 'intern',
-};
+let newText = Array.from(p);
+newText = newText.map((item) => `<span>${item.textContent}</span>`).join(' ');
 
-const { name } = person;
-console.log(name);
+result.innerHTML = newText;
 
-const getAverage = (name, ...average) => {
-  console.log(name);
-  console.log(average);
-  let total = 0;
-  for (let number of average) {
-    total += number;
-  }
-  console.log(`Hello ${name} your score is ${total / average.length}`);
-};
+const text = Array.from(document.querySelectorAll('p'), (item) => {
+  return `<span>${item.textContent}</span>`;
+}).join(' ');
 
-const numbers = [20, 10, 30];
-getAverage(name, ...numbers);
+second.innerHTML = text;
