@@ -1,22 +1,24 @@
 const bob = {
-  firstName: 'bob',
-  lastName: 'smith',
-  sayName: function () {
-    console.log(this);
-    setTimeout(() => {
-      console.log(`Hello my name is ${this.firstName} ${this.lastName}`);
-    }, 2000);
+  first: 'bob',
+  last: 'sanders',
+  city: 'chicago',
+  siblings: {
+    sister: 'jane',
   },
 };
 
-const anna = {
-  firstName: 'anna',
-  lastName: 'sanders',
-  sayName: () => {
-    console.log(this);
-    console.log(`Hello my name is ${this.firstName} ${this.lastName}`);
-  },
-};
+const mathis = ['Mathis', 'Humbert', '22', 'Fuisse', 'Lisa'];
 
-bob.sayName();
-// anna.sayName();
+const [firstName, , , , gf] = mathis;
+console.log(firstName, gf);
+
+function test({ first, city }) {
+  console.log(first, city);
+}
+test(bob);
+
+let first = 'two';
+let second = 'one';
+console.log(first, second);
+[first, second] = [second, first];
+console.log(first, second);
