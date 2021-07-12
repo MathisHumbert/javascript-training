@@ -1,22 +1,22 @@
-const sayHi = () => console.log('hi');
-
-const double = (num) => num * 2;
-
-const multiply = (num1, num2) => {
-  const result = num1 * num2;
-  return result;
+const bob = {
+  firstName: 'bob',
+  lastName: 'smith',
+  sayName: function () {
+    console.log(this);
+    setTimeout(() => {
+      console.log(`Hello my name is ${this.firstName} ${this.lastName}`);
+    }, 2000);
+  },
 };
 
-// return object
-const object = () => ({ name: 'john', age: 22 });
+const anna = {
+  firstName: 'anna',
+  lastName: 'sanders',
+  sayName: () => {
+    console.log(this);
+    console.log(`Hello my name is ${this.firstName} ${this.lastName}`);
+  },
+};
 
-// arrow function as callback functions
-const numbers = [1, 2, 3, 4, 5, 6];
-const big = numbers.filter((number, index) => {
-  console.log(index);
-  return number > 2;
-});
-console.log(big);
-
-const btn = document.querySelector('.btn');
-btn.addEventListener('click', () => console.log('you clicked me'));
+bob.sayName();
+// anna.sayName();
