@@ -1,24 +1,19 @@
-const bob = {
-  first: 'bob',
-  last: 'sanders',
-  city: 'chicago',
-  siblings: {
-    sister: 'jane',
-  },
-};
+const fruits = ['apple', 'orange', 'banana', 'peach'];
+const longName = 'John Smith Pepper III';
+let shortName = '';
 
-const mathis = ['Mathis', 'Humbert', '22', 'Fuisse', 'Lisa'];
-
-const [firstName, , , , gf] = mathis;
-console.log(firstName, gf);
-
-function test({ first, city }) {
-  console.log(first, city);
+for (let letter of longName) {
+  if (letter === ' ') {
+    continue;
+  } else {
+    shortName += letter;
+  }
 }
-test(bob);
+console.log(shortName);
 
-let first = 'two';
-let second = 'one';
-console.log(first, second);
-[first, second] = [second, first];
-console.log(first, second);
+for (fruit of fruits) {
+  if (fruit === 'orange') {
+    continue;
+  }
+  console.log(fruit);
+}
