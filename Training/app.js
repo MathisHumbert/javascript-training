@@ -1,16 +1,22 @@
-const author = 'Some Author';
-const statement = 'Some Statement';
+const sayHi = () => console.log('hi');
 
-const quote = hightLight`Here is the ${statement} by ${author} and it could not be more true`;
-console.log(quote);
+const double = (num) => num * 2;
 
-const result = document.getElementById('result');
-result.innerHTML = quote;
+const multiply = (num1, num2) => {
+  const result = num1 * num2;
+  return result;
+};
 
-function hightLight(text, ...vars) {
-  console.log(text, vars);
-  const awesome = text.map((item, index) => {
-    return `${item}<strong class="blue">${vars[index] || ''}</strong>`;
-  });
-  return awesome.join('');
-}
+// return object
+const object = () => ({ name: 'john', age: 22 });
+
+// arrow function as callback functions
+const numbers = [1, 2, 3, 4, 5, 6];
+const big = numbers.filter((number, index) => {
+  console.log(index);
+  return number > 2;
+});
+console.log(big);
+
+const btn = document.querySelector('.btn');
+btn.addEventListener('click', () => console.log('you clicked me'));
