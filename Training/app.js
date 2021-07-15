@@ -1,20 +1,12 @@
 import { random, people } from './utils/data.js';
 
-const container = document.querySelector('.container');
-const btn = document.querySelector('.btn');
+import showPeople from './utils/showPeople.js';
+
+import getElement from './utils/getElement.js';
+
+const container = getElement('.container');
+const btn = getElement('.btn');
 
 btn.addEventListener('click', () => {
-  showPeople();
+  container.innerHTML = showPeople(people);
 });
-
-const showPeople = () => {
-  const newPoeple = people
-    .map((item) => {
-      const { name, job } = item;
-      return `<p>${name}<strong>${job}</strong></p>`;
-    })
-    .join('');
-  container.innerHTML = newPoeple;
-};
-
-console.log(random);
