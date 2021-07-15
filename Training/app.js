@@ -1,5 +1,9 @@
-const sum = (...arguments) => {
-  return arguments.reduce((acc, value) => acc + value, 0);
+const source = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10];
+
+const removeFirstTwo = (item) => {
+  [a, b, ...arr] = item;
+  return arr;
 };
 
-console.log(sum(2, 2));
+const test = removeFirstTwo(source);
+console.groupCollapsed(test);
