@@ -2,18 +2,28 @@ const heanding1 = document.querySelector('.one');
 const heanding2 = document.querySelector('.two');
 const heanding3 = document.querySelector('.three');
 
+const container = document.querySelector('.img-container');
 const btn = document.querySelector('.btn');
 
+const url = 'https://source.unsplash.com/random';
+
 btn.addEventListener('click', () => {
-  setTimeout(() => {
-    heanding1.style.color = 'red';
-    setTimeout(() => {
-      heanding2.style.color = 'green';
-      setTimeout(() => {
-        heanding3.style.color = 'blue';
-      }, 1000);
-    }, 2000);
-  }, 1000);
+  loadImage(url)
+    .then((data) => container.appendChild(data))
+    .catch((data) => console.log(data));
 });
 
-console.log(`I'm second`);
+function loadImage(url) {
+  // return new Promise((resolve, reject)=>{})
+  const promise = new Promise((resolve, reject) => {
+    let img = new Image();
+    img.addEventListener('load', () => {
+      resolve(img);
+    });
+    img.addEventListener('error', () => {
+      reject(new Error(`Failed to load image from the source : ${url}`));
+    });
+    img.src = url;
+  });
+  return promise;
+}
