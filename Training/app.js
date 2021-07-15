@@ -1,9 +1,20 @@
-const source = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10];
+import { random, people } from './utils/data.js';
 
-const removeFirstTwo = (item) => {
-  [a, b, ...arr] = item;
-  return arr;
+const container = document.querySelector('.container');
+const btn = document.querySelector('.btn');
+
+btn.addEventListener('click', () => {
+  showPeople();
+});
+
+const showPeople = () => {
+  const newPoeple = people
+    .map((item) => {
+      const { name, job } = item;
+      return `<p>${name}<strong>${job}</strong></p>`;
+    })
+    .join('');
+  container.innerHTML = newPoeple;
 };
 
-const test = removeFirstTwo(source);
-console.groupCollapsed(test);
+console.log(random);
