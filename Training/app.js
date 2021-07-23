@@ -1,23 +1,17 @@
-function filteredArray(arr, elem) {
-  let newArr = [];
-
-  for (let i = 0; i < arr.length; i++) {
-    if (arr[i].indexOf(elem) == -1) {
-      newArr.push(arr[i]);
+function countOnline(usersObj) {
+  let total = 0;
+  for (let i in usersObj) {
+    if (usersObj[i].online === true) {
+      total++;
     }
   }
-
-  return newArr;
+  return total;
 }
 
 console.log(
-  filteredArray(
-    [
-      [3, 2, 3],
-      [1, 6, 3],
-      [3, 13, 26],
-      [19, 3, 9],
-    ],
-    2
-  )
+  countOnline({
+    Alan: { online: false },
+    Jeff: { online: true },
+    Sarah: { online: false },
+  })
 );
