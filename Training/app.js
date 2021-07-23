@@ -1,30 +1,23 @@
-const btn = document.querySelector('.btn');
-const url = '../api/people.json';
-btn.addEventListener('click', () => {
-  getData(url);
-});
+function filteredArray(arr, elem) {
+  let newArr = [];
 
-function getData(url) {
-  const xhr = new XMLHttpRequest();
-
-  xhr.open('GET', url);
-  xhr.onreadystatechange = () => {
-    if (xhr.readyState === 4 && xhr.status === 200) {
-      const data = JSON.parse(xhr.responseText);
-      const displayData = data
-        .map((item) => {
-          return `<p>${item.name}</p>`;
-        })
-        .join('');
-      const element = document.createElement('div');
-      element.innerHTML = displayData;
-      document.body.appendChild(element);
-    } else {
-      console.log({
-        satuts: xhr.status,
-        text: xhr.statusText,
-      });
+  for (let i = 0; i < arr.length; i++) {
+    if (arr[i].indexOf(elem) == -1) {
+      newArr.push(arr[i]);
     }
-  };
-  xhr.send();
+  }
+
+  return newArr;
 }
+
+console.log(
+  filteredArray(
+    [
+      [3, 2, 3],
+      [1, 6, 3],
+      [3, 13, 26],
+      [19, 3, 9],
+    ],
+    2
+  )
+);
