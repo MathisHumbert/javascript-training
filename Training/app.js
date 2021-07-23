@@ -1,17 +1,15 @@
-function countOnline(usersObj) {
-  let total = 0;
-  for (let i in usersObj) {
-    if (usersObj[i].online === true) {
-      total++;
-    }
+function reverseString(str) {
+  let newArr = [];
+  let arr = [];
+  for (let i = 0; i < str.length; i++) {
+    newArr.push(str[i]);
   }
-  return total;
+  for (let i = 0; i < newArr.length; i++) {
+    let actualWord = newArr[i];
+    arr.unshift(actualWord);
+  }
+  str = arr.join('');
+  return str;
 }
 
-console.log(
-  countOnline({
-    Alan: { online: false },
-    Jeff: { online: true },
-    Sarah: { online: false },
-  })
-);
+console.log(reverseString('hello'));
