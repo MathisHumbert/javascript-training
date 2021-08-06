@@ -1,15 +1,17 @@
-function reverseString(str) {
-  let newArr = [];
-  let arr = [];
-  for (let i = 0; i < str.length; i++) {
-    newArr.push(str[i]);
+function findLongestWordLength(str) {
+  let words = str.split(' ');
+  words = [...words];
+  let maxWord = 0;
+
+  for (let i = 0; i < words.length; i++) {
+    let actualWord = words[i].length;
+    if (actualWord > maxWord) {
+      maxWord = actualWord;
+    }
   }
-  for (let i = 0; i < newArr.length; i++) {
-    let actualWord = newArr[i];
-    arr.unshift(actualWord);
-  }
-  str = arr.join('');
-  return str;
+  return console.log(maxWord);
 }
 
-console.log(reverseString('hello'));
+findLongestWordLength(
+  'What if we try a super-long word such as otorhinolaryngology'
+);
