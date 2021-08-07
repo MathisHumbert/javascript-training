@@ -1,15 +1,12 @@
-function repeatStringNumTimes(str, num) {
-  let stringRepeated = [];
-  if (num < 0) {
-    stringRepeated.push('');
-    return stringRepeated;
+function findElement(arr, func) {
+  let num = 0;
+  for (let i = 0; i < arr.length; i++) {
+    let x = arr[i];
+    if (func(x)) {
+      return x;
+    }
   }
-  for (let i = 0; i < num; i++) {
-    stringRepeated.push(str);
-  }
-  stringRepeated = stringRepeated.join('');
-  return stringRepeated;
 }
 
-repeatStringNumTimes('abc', -2);
-console.log(repeatStringNumTimes('abc', -2));
+findElement([1, 2, 3, 4], (num) => num % 2 === 0);
+console.log(findElement([1, 2, 3, 4], (num) => num % 2 === 0));
