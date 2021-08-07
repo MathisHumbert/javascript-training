@@ -1,10 +1,15 @@
-function confirmEnding(str, target) {
-  let lastpart = str.substring(str.length - target.length, str.length);
-  if (lastpart === target) {
-    return true;
-  } else {
-    return false;
+function repeatStringNumTimes(str, num) {
+  let stringRepeated = [];
+  if (num < 0) {
+    stringRepeated.push('');
+    return stringRepeated;
   }
+  for (let i = 0; i < num; i++) {
+    stringRepeated.push(str);
+  }
+  stringRepeated = stringRepeated.join('');
+  return stringRepeated;
 }
 
-console.log(confirmEnding('Connor', 'n'));
+repeatStringNumTimes('abc', -2);
+console.log(repeatStringNumTimes('abc', -2));
