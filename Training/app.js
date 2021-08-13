@@ -1,7 +1,6 @@
-let result;
+let result = 1;
 
-do {
-  result = Number(prompt('Enter a number'));
-} while (Number.isNaN(result));
-
-console.log(`Your number is the square root of ${result * result}`);
+for (let counter = 0; counter < 10; counter++) {
+  result = result * 2;
+}
+console.log(result);
