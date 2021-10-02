@@ -1,11 +1,15 @@
-function arrayDiff(a, b) {
-  let newArr = [];
-  a.forEach((item) => {
-    if (!b.includes(item)) {
-      newArr.push(item);
-    }
-  });
-  return newArr;
-}
+function zero() {}
+function one() {}
+function two() {}
+function three() {}
+function four() {}
+function five() {}
+function six() {}
+function seven() {}
+function eight() {}
+function nine() {}
 
-arrayDiff([1, 2, 3], [1, 2]);
+function plus() {}
+function minus() {}
+function times() {}
+function dividedBy() {}
