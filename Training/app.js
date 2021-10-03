@@ -1,45 +1,67 @@
-function zero() {
-  return 0;
+function zero(num) {
+  return returnResult(num, 0);
 }
-function one() {
-  return 1;
+function one(num) {
+  return returnResult(num, 1);
 }
-function two() {
-  return 2;
+function two(num) {
+  return returnResult(num, 2);
 }
-function three() {
-  return 3;
+function three(num) {
+  return returnResult(num, 3);
 }
-function four() {
-  return 4;
+function four(num) {
+  return returnResult(num, 4);
 }
-function five() {
-  return 5;
+function five(num) {
+  return returnResult(num, 5);
 }
-function six() {
-  return 6;
+function six(num) {
+  return returnResult(num, 6);
 }
 function seven(num) {
-  if (num) {
-    console.log(num);
-  } else {
-    return 7;
-  }
+  return returnResult(num, 7);
 }
 function eight(num) {
-  return 8;
+  return returnResult(num, 8);
 }
-function nine() {
-  return 9;
+function nine(num) {
+  return returnResult(num, 9);
 }
 
-function plus() {}
-function minus() {}
-function times() {}
+function plus(num) {
+  return ['+', num];
+}
+function minus(num) {
+  return ['-', num];
+}
+function times(num) {
+  return ['*', num];
+}
 function dividedBy(num) {
   return ['/', num];
 }
 
-console.log(eight(dividedBy(seven())));
+function returnResult(arrNum, value) {
+  if (arrNum) {
+    if (arrNum[0] === '/') {
+      return Math.floor(value / arrNum[1]);
+    }
+    if (arrNum[0] === '*') {
+      return value * arrNum[1];
+    }
+    if (arrNum[0] === '+') {
+      return value + arrNum[1];
+    }
+    if (arrNum[0] === '-') {
+      return value - arrNum[1];
+    }
+  } else {
+    return value;
+  }
+}
 
-// faire la meme fonction de la 7 sur toutes et return selon l'array recu
+console.log(eight(dividedBy(seven())));
+console.log(seven(times(five())));
+console.log(four(plus(nine())));
+console.log(eight(minus(three())));
