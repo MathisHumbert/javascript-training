@@ -1,19 +1,19 @@
-// Make Soup
-// boil water 10 min
-// chop carrots
-// add carrots boil for 5 min
-// chop onion
-// add onion boil for 5 min
+// callbacks, promises, async/await
 
-boilWater(0);
-console.log('chop carrots');
-for (let i = 0; i < 1000; i++) {
-  console.log('still busy');
-}
+const heading1 = document.querySelector('.one');
+const heading2 = document.querySelector('.two');
+const heading3 = document.querySelector('.three');
 
-function boilWater(time) {
-  console.log('boiling...');
+const btn = document.querySelector('.btn');
+
+btn.addEventListener('click', () => {
   setTimeout(() => {
-    console.log('done');
-  }, time);
-}
+    heading1.style.color = 'red';
+    setTimeout(() => {
+      heading2.style.color = 'green';
+      setTimeout(() => {
+        heading3.style.color = 'blue';
+      }, 1000);
+    }, 1000);
+  }, 1000);
+});
