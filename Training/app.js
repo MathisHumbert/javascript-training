@@ -1,8 +1,36 @@
-function squareDigits(num) {
-  let numArr = num.toString().split('');
-  numArr = numArr.map((num) => Math.pow(parseInt(num), 2)).join('');
-  return parseInt(numArr);
+function countSheeps(arrayOfSheep) {
+  let acc = 0;
+  arrayOfSheep.forEach((sheep) => (sheep === true ? acc++ : ''));
+  return acc;
 }
 
-console.log(squareDigits(9119));
-console.log(squareDigits(3212));
+function countSheeps(arrayOfSheeps) {
+  console.log(arrayOfSheeps.filter(Boolean).length);
+}
+
+countSheeps([
+  true,
+  true,
+  true,
+  false,
+  true,
+  true,
+  true,
+  true,
+  true,
+  false,
+  true,
+  false,
+  true,
+  false,
+  false,
+  true,
+  true,
+  true,
+  true,
+  true,
+  false,
+  false,
+  true,
+  true,
+]);
