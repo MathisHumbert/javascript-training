@@ -1,3 +1,0 @@
-function duplicateEncode(word) {
-  // ...
-}
