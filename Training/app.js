@@ -1,45 +1,49 @@
-class Publication {
-  constructor(title, author, pubDate) {
-    this.title = title;
-    this.author = author;
-    this.pubDate = pubDate;
-  }
+function Publication(title, author, pubDate) {
+  let publicAPI = {
+    print() {
+      console.log(`
+   Title: ${title}
+   By: ${author}
+   ${pubDate} 
+   `);
+    },
+  };
 
-  print() {
-    console.log(`
-    Title: ${this.title} 
-    By: ${this.author} 
-    ${this.pubDate}`);
-  }
+  return publicAPI;
 }
 
-class Book extends Publication {
-  constructor(bookDtails) {
-    super(bookDtails.title, bookDtails.author, bookDtails.publishedOn);
+function Book(bookDetails) {
+  let pub = Publication(
+    bookDetails.title,
+    bookDetails.author,
+    bookDetails.pusblishedOn
+  );
 
-    this.publisher = bookDtails.publisher;
-    this.ISBN = bookDtails.ISBn;
-  }
-
-  print() {
-    super.print();
-    console.log(`Publisher: ${this.publisher} 
-   ISBN: ${this.ISBN}`);
-  }
+  let publicAPI = {
+    print() {
+      pub.print();
+      console.log(`
+   Publisher: ${bookDetails.publisher}
+   ISBN: ${bookDetails.ISBN}
+   `);
+    },
+  };
+  return publicAPI;
 }
 
-class BlogPost extends Publication {
-  constructor(title, author, pubDate, URL) {
-    super(title, author, pubDate);
-    this.URL = URL;
-  }
-  print() {
-    super.print();
-    console.log(`ISBN: ${this.URL}`);
-  }
+function BlogPost(title, author, pubDate, URL) {
+  let pub = Publication(title, author, pubDate);
+
+  let publicAPI = {
+    print() {
+      pub.print();
+      console.log(URL);
+    },
+  };
+  return publicAPI;
 }
 
-let YDKJS = new Book({
+let YDKJS = Book({
   title: "You Don't Know JS",
   author: 'Kyle Simpson',
   publishedOn: 'June 2014',
@@ -49,7 +53,7 @@ let YDKJS = new Book({
 
 YDKJS.print();
 
-let forAgainstLet = new BlogPost(
+let forAgainstLet = BlogPost(
   'For and against let',
   'Kyle Sympson',
   'October 27, 2014',
