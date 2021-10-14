@@ -1,10 +1,15 @@
-import { createPub } from './blogpost.js';
+function createPerson(firstName, lastName) {
+  let publicAPI = {
+    firstName,
+    lastName,
+    fullName: function () {
+      console.log(`My name is ${this.firstName} ${this.lastName}`);
+    },
+  };
+  return publicAPI;
+}
 
-let post = createPub(
-  'For and against let',
-  'Kyle Simpson',
-  'October 27, 2014',
-  'https://lelelelele'
-);
-
-post.print();
+let person = createPerson('Mathis', 'Humbert');
+person.fullName();
+let person2 = createPerson('Lisa', 'Mora');
+person2.fullName();
