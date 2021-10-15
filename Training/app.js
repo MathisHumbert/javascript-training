@@ -1,19 +1,12 @@
-function classroom(teacher) {
-  return function study() {
-    console.log(`${teacher}, says to study ${this.topic}`);
-  };
-}
-
-let assignement = classroom('Kyle');
-
 let homework = {
-  topic: 'JS',
-  assignement: assignement,
+  study() {
+    console.log(`Please study ${this.topic}`);
+  },
 };
 
-let otherHomwork = {
-  topic: 'Math',
-};
-
-homework.assignement();
-assignement.call(otherHomwork);
+let jsHomework = Object.create(homework);
+let mathHomework = Object.create(homework);
+jsHomework.topic = 'Js';
+jsHomework.study();
+mathHomework.topic = 'Math';
+mathHomework.study();
