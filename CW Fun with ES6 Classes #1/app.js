@@ -1,38 +1,16 @@
-class Animal {
-  constructor(name, age, legs, species, status) {
-    this.name = name;
-    this.age = age;
-    this.legs = legs;
-    this.species = species;
-    this.status = status;
-  }
-  introduce() {
-    return `Hello, my name is ${this.name} and I am ${this.age} years old.`;
-  }
-}
-
-class Shark extends Animal {
-  constructor(name, age, status) {
-    super(name, age, 0, 'shark', status);
-  }
-}
-
-class Cat extends Animal {
-  constructor(name, age, status) {
-    super(name, age, 4, 'cat', status);
+class Person {
+  constructor(firstName = 'John', lastName = 'Doe', age = 0, gender = 'Male') {
+    (this.firstName = firstName),
+      (this.lastName = lastName),
+      (this.age = age),
+      (this.gender = gender);
   }
 
-  introduce() {
-    return super.introduce() + '  Meow meow!';
+  sayFullName() {
+    return `${this.firstName} ${this.lastName}`;
   }
-}
 
-class Dog extends Animal {
-  constructor(name, age, status, master) {
-    super(name, age, 4, 'dogs', status);
-    this.master = master;
-  }
-  greetMaster() {
-    return `Hello ${this.master}`;
+  static greetExtraTerrestrials(raceName) {
+    return `Welcome to Planet Earth ${raceName}`;
   }
 }
