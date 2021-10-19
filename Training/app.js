@@ -15,17 +15,33 @@
 //   },
 // };
 
-function UserCreator(name, score) {
-  this.name = name;
-  this.score = score;
-}
+// function UserCreator(name, score) {
+//   this.name = name;
+//   this.score = score;
+// }
 
-UserCreator.prototype.increment = function () {
-  this.score++;
-};
-UserCreator.prototype.login = function () {
-  console.log('login');
-};
+// UserCreator.prototype.increment = function () {
+//   const add1 = () => this.score++;
+//   add1();
+// };
+// UserCreator.prototype.login = function () {
+//   console.log('login');
+// };
+
+class UserCreator {
+  constructor(name, score) {
+    this.name = name;
+    this.score = score;
+  }
+
+  increment() {
+    this.score++;
+  }
+
+  loin() {
+    console.log('login');
+  }
+}
 
 const user1 = new UserCreator('Eva', 9);
 console.log(user1);
