@@ -1,18 +1,17 @@
-// map
-const map = (array, instructions) => {
-  const output = [];
-  for (let i = 0; i < array.length; i++) {
-    output.push(instructions(array[i]));
-  }
-  return output;
-};
+// function composition
+const multiplyBy2 = (x) => x * 2;
+const add3 = (x) => x + 3;
+const divideBy5 = (x) => x / 5;
 
-const multyiplyBy2 = (input) => input * 2;
+const initialResult = multiplyBy2(11);
+const nexStep = add3(initialResult);
+const finalStep = divideBy5(nexStep);
+console.log(finalStep);
 
-const result = map([1, 2, 3], multyiplyBy2);
-const result2 = map([1, 2, 3], (input) => input * 2);
+const result = divideBy5(add3(multiplyBy2(11)));
+console.log(result);
 
-// reduce
+// function composition with reduce
 const reduce = (array, howToCombine, buildingUp) => {
   for (let i = 0; i < array.length; i++) {
     buildingUp = howToCombine(buildingUp, array[i]);
@@ -20,17 +19,9 @@ const reduce = (array, howToCombine, buildingUp) => {
   return buildingUp;
 };
 
-const add = (a, b) => a + b;
-const summed = reduce([1, 2, 3], add, 0);
-console.log(summed);
+const runFunctionOnInput = (input, fn) => {
+  return fn(input);
+};
 
-// filter
-const array = [1, 2, 3, 4, 5, 6];
-const greaterThan2 = (num) => num > 2;
-
-const filteredArray = array.filter(greaterThan2);
-console.log(filteredArray);
-
-// chain higher order functions
-const sumOfGreaterThan2 = array.filter(greaterThan2).reduce(add, 0);
-console.log(sumOfGreaterThan2);
+const output = reduce([multiplyBy2, add3, divideBy5], runFunctionOnInput, 11);
+console.log(output);
