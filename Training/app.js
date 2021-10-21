@@ -10,5 +10,27 @@ const functionCreator = () => {
 
 const generatedFunc = functionCreator();
 const result = generatedFunc(2);
-console.log(generatedFunc);
-console.log(result);
+
+// inner function access
+const outer = () => {
+  let counter = 0;
+  const incrementCounter = () => {
+    counter++;
+  };
+  incrementCounter();
+};
+outer();
+
+const outer2 = () => {
+  let counter = 0;
+  const incrementCounter = () => {
+    counter++;
+  };
+  return incrementCounter;
+};
+
+// outer2() => error
+const newFunction = outer2();
+newFunction();
+newFunction();
+// counter = 2
