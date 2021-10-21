@@ -23,3 +23,10 @@ const reduce = (array, howToCombine, buildingUp) => {
 const add = (a, b) => a + b;
 const summed = reduce([1, 2, 3], add, 0);
 console.log(summed);
+
+// filter
+const array = [1, 2, 3, 4, 5, 6];
+const greaterThan2 = (num) => num > 2;
+
+const filteredArray = array.filter(greaterThan2);
+console.log(filteredArray);
