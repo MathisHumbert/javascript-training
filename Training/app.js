@@ -30,3 +30,7 @@ const greaterThan2 = (num) => num > 2;
 
 const filteredArray = array.filter(greaterThan2);
 console.log(filteredArray);
+
+// chain higher order functions
+const sumOfGreaterThan2 = array.filter(greaterThan2).reduce(add, 0);
+console.log(sumOfGreaterThan2);
