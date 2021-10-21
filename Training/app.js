@@ -1,19 +1,14 @@
-const reduce = (array, callback, initialValue) => {
-  for (let i = 0; i < array.length; i++) {
-    initialValue = callback(initialValue, array[i]);
-  }
-  return initialValue;
+// closure
+const functionCreator = () => {
+  let counter = 0;
+  const add3 = (num) => {
+    const result = num + 3;
+    return result;
+  };
+  return add3;
 };
 
-const unionCallBack = (arr1, arr2) => {
-  for (let i of arr2) {
-    arr1.includes(i) ? '' : arr1.push(i);
-  }
-  return arr1;
-};
-
-const union = (...arrays) => {
-  return reduce(arrays, unionCallBack, []);
-};
-
-console.log(union([5, 10, 15], [15, 88, 1, 5, 7], [100, 15, 10, 1, 5]));
+const generatedFunc = functionCreator();
+const result = generatedFunc(2);
+console.log(generatedFunc);
+console.log(result);
