@@ -1,37 +1,21 @@
-// closure
-const functionCreator = () => {
+// function decoration
+
+const oncify = (convertMe) => {
   let counter = 0;
-  const add3 = (num) => {
-    const result = num + 3;
-    return result;
+  const inner = (input) => {
+    if (counter === 0) {
+      const output = convertMe(input);
+      counter++;
+      return output;
+    }
+    return 'Sorry';
   };
-  return add3;
+  return inner;
 };
 
-const generatedFunc = functionCreator();
-const result = generatedFunc(2);
+const multiplyBy2 = (x) => x * 2;
 
-// inner function access
-const outer = () => {
-  let counter = 0;
-  const incrementCounter = () => {
-    counter++;
-  };
-  incrementCounter();
-};
-outer();
+const oncifiedMultiplyBy2 = oncify(multiplyBy2);
 
-// outer functions
-const outer2 = () => {
-  let counter = 0;
-  const incrementCounter = () => {
-    counter++;
-  };
-  return incrementCounter;
-};
-
-// outer2() => error
-const newFunction = outer2();
-newFunction();
-newFunction();
-// counter = 2
+console.log(oncifiedMultiplyBy2(10));
+console.log(oncifiedMultiplyBy2(10));
