@@ -21,6 +21,7 @@ const outer = () => {
 };
 outer();
 
+// outer functions
 const outer2 = () => {
   let counter = 0;
   const incrementCounter = () => {
