@@ -14,6 +14,35 @@ const multBy3 = (n) => n * 3;
 const divBy4 = (n) => n / 4;
 const subtract5 = (n) => n - 5;
 const half = (n) => n / 2;
+const isEven = (n) => n % 2 === 0;
+const greaterThanFour = (n) => n > 4;
+const isSquare = (n) => Math.sqrt(n) % 1 === 0;
+const hasSix = (n) => n.toString().includes('6');
+const capitalize = (str) => str.toUpperCase();
+const addLowerCase = (str) => str + str.toLowerCase();
+const repeat = (str) => str + str;
+
+// pipe
+const pipe = (arrOfFuncs, value) => {
+  return arrOfFuncs.reduce(runFunctionOnInput, value);
+};
+
+// const capAddlowRepeat = [capitalize, addLowerCase, repeat];
+// console.log(pipe(capAddlowRepeat, 'cat')); // should log: 'CATcatCATcat'
+
+// rating
+const rating = (arrOfFuncs, value) => {
+  let rate = arrOfFuncs
+    .map((fn) => fn(value))
+    .map((num) => (num === true ? 1 : 0))
+    .reduce((a, b) => a + b);
+
+  return (rate / arrOfFuncs.length) * 100;
+};
+
+// const checks = [isEven, greaterThanFour, isSquare, hasSix];
+// console.log(rating(checks, 64)); // should log: 100
+// console.log(rating(checks, 66)); // should log: 75
 
 // objFilter
 const objFilter = (obj, callback) => {
