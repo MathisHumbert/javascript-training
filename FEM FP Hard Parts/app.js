@@ -1,3 +1,4 @@
+// global functions
 const reduce = (array, callback, initialValue) => {
   for (let i = 0; i < array.length; i++) {
     initialValue = callback(initialValue, array[i]);
@@ -12,7 +13,25 @@ const runFunctionOnInput = (input, fn) => {
 const multBy3 = (n) => n * 3;
 const divBy4 = (n) => n / 4;
 const subtract5 = (n) => n - 5;
+const half = (n) => n / 2;
 
+// objFilter
+const objFilter = (obj, callback) => {
+  let filteredObj = {};
+  for (let i in obj) {
+    if (callback(i) === obj[i]) filteredObj[i] = obj[i];
+  }
+  return filteredObj;
+};
+
+// const startingObj = {};
+// startingObj[6] = 3;
+// startingObj[2] = 1;
+// startingObj[12] = 4;
+
+// console.log(objFilter(startingObj, half)); // should log: { 2: 1, 6: 3 }
+
+// commutative
 const commutative = (func1, func2, value) => {
   return (
     reduce([func1, func2], runFunctionOnInput, value) ===
@@ -20,9 +39,9 @@ const commutative = (func1, func2, value) => {
   );
 };
 
-console.log(commutative(multBy3, divBy4, 11)); // should log: true
-console.log(commutative(multBy3, subtract5, 10)); // should log: false
-console.log(commutative(divBy4, subtract5, 48)); // should log: false
+// console.log(commutative(multBy3, divBy4, 11)); // should log: true
+// console.log(commutative(multBy3, subtract5, 10)); // should log: false
+// console.log(commutative(divBy4, subtract5, 48)); // should log: false
 
 // intersection
 const intersectionCallBack = (arr1, arr2) => {
