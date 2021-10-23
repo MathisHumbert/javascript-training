@@ -1,15 +1,9 @@
-function printHello() {
-  console.log('Hello');
-}
+const promise1 = new Promise((resolve, reject) =>
+  setTimeout(() => {
+    resolve('foo');
+  }, 300)
+);
 
-function blockFor1Sec() {
-  for (let i = 0; i < 1000; i++) {
-    console.log(i);
-  }
-}
-
-setTimeout(printHello, 0);
-
-blockFor1Sec();
-
-console.log('Me First');
+promise1.then((value) => {
+  console.log(value);
+});
