@@ -66,6 +66,25 @@ const numSelectString = (numArr) => {
 //console.log(allClear(numFnArr, 25)); // should log true
 //console.log(allClear(numFnArr, -25)); // should log false
 
+// Challenge 4
+const movieSelector = (moviesArr) => {
+  return moviesArr
+    .filter((movie) => movie.score > 5)
+    .map((movie) => movie.title)
+    .reduce((acc, curr) => {
+      acc.push(curr.toUpperCase());
+      return acc;
+    }, []);
+};
+
+// const movies = [
+//   { id: 1, title: "Pan's Labyrinth", score: 9 },
+//   { id: 37, title: 'Manos: The Hands of Fate', score: 2 },
+//   { title: 'Air Bud', score: 5 },
+//   { title: 'Hackers', score: 7 },
+// ];
+//console.log(movieSelector(movies)); // should log [ "PAN'S LABYRINTH", "HACKERS" ]
+
 // highestFun
 const highestFunc = (objOfFuncs, subject) => {
   let values = {};
