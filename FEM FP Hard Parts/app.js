@@ -21,6 +21,37 @@ const hasSix = (n) => n.toString().includes('6');
 const capitalize = (str) => str.toUpperCase();
 const addLowerCase = (str) => str + str.toLowerCase();
 const repeat = (str) => str + str;
+const addFive = (num) => num + 5;
+const multiplyByTwo = (num) => num * 2;
+const subtractOne = (num) => num - 1;
+const isOdd = (num) => num % 2 === 1;
+const isPositive = (num) => num > 0;
+const multipleOfFive = (num) => num % 5 === 0;
+
+// Challenge 1
+const functionValidator = (funcArr, input, output) => {
+  return funcArr.reduce((acc, curr) => {
+    if (curr(input) === output) {
+      acc.push(curr);
+    }
+    return acc;
+  }, []);
+};
+
+// const fnArr = [addFive, multiplyByTwo, subtractOne];
+// console.log(functionValidator(fnArr, 5, 10)); // should log [num => num + 5, num => num * 2]
+
+// Challenge 2
+const allClear = (funcArr, value) => {
+  return funcArr.reduce((acc, curr) => {
+    if (acc) return curr(value);
+    return acc;
+  }, true);
+};
+
+//const numFnArr = [isOdd, isPositive, multipleOfFive];
+//console.log(allClear(numFnArr, 25)); // should log true
+//console.log(allClear(numFnArr, -25)); // should log false
 
 // highestFun
 const highestFunc = (objOfFuncs, subject) => {
