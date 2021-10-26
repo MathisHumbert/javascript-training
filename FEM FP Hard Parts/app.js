@@ -85,6 +85,19 @@ const movieSelector = (moviesArr) => {
 // ];
 //console.log(movieSelector(movies)); // should log [ "PAN'S LABYRINTH", "HACKERS" ]
 
+// Challenge 5
+const curriedAddThreeNums = (num1) => {
+  const firstInner = (num2) => {
+    const secondInner = (num3) => {
+      return num1 + num2 + num3;
+    };
+    return secondInner;
+  };
+  return firstInner;
+};
+
+//console.log(curriedAddThreeNums(3)(-1)(1)); // should log 3
+
 // highestFun
 const highestFunc = (objOfFuncs, subject) => {
   let values = {};
